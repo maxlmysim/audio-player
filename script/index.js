@@ -5,7 +5,7 @@ const forward = document.querySelector('.switch-forward');
 const progress = document.querySelector('.progress-bar');
 let isPlaying = false;
 let playNum = 0;
-let playList = ["Beyonce_-_Don't_Hurt_Yourself.mp3", "Tom_Odell_-_Cant_Pretend.mp3", "Dua_Lipa_-_Don'tStart_Now.mp3"];
+let playList = ["Tom_Odell_-_Cant_Pretend.mp3", "Beyonce_-_Don't_Hurt_Yourself.mp3", "Dua_Lipa_-_Don'tStart_Now.mp3"];
 
 
 function fullTime() {

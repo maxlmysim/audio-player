@@ -27,12 +27,13 @@ body {
     height: 70%;
     border-radius: 20px 20px 0 0;
     box-shadow: 0 0 10px black;
-    background-image: url("../assets/img/Beyonce.png");
+    background-image: url("../assets/img/Tom.png");
     background-size: cover;
 }
 
 .container__bottom {
     height: 30%;
+    box-shadow: 0 0 10px black;
     border-radius: 0 0 20px 20px;
     background: linear-gradient(7deg, rgb(40 40 40 / 78%), rgb(133, 133, 133));
     display: flex;
