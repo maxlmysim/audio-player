@@ -5,32 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Music player</title>
     <link type="image/x-icon" rel="shortcut icon" href="assets/favicon.ico">
-        <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <audio class="audio" src="./assets/audio/Beyonce%20-%20Don't%20Hurt%20Yourself.mp3"></audio>
+<img class="background" src="./assets/img/Beyonce.png" alt="background">
 <div class="container">
     <div class="container__top"></div>
     <div class="container__bottom">
         <div class="dashboard">
             <div class="dashboard__top">
-                <div class="play-stop">
-                    <img src="./assets/svg/play.png" alt="">
+                <div>
+                    <img class="play-stop button" src="./assets/svg/play.png" alt="switch">
                 </div>
                 <div class="name">
-                    <div class="name__singer">
-                        <p>Beyonce</p>
-                    </div>
-                    <div class="name__music">
-                        <p>Don't Hurt Yourself</p>
-                    </div>
+                    <p class="name__text name__singer">Beyonce</p>
+                    <p class="name__text name__music">Don't Hurt Yourself</p>
                 </div>
                 <div class="switches">
-                    <img src="./assets/svg/backward.png" alt="backward">
-                    <img src="./assets/svg/forward.png" alt="forward">
+                    <img class="switch button switch-backward" src="./assets/svg/backward.png" alt="backward">
+                    <img class="switch button switch-forward" src="./assets/svg/forward.png" alt="forward">
                 </div>
             </div>
-            <div class="dashboard__bottom"></div>
+            <div class="dashboard__bottom">
+                <p class="time full-time">1</p>
+                <input class="progress-bar" max="1" min="0" name="progress" step="0.05" type="range" value="0">
+                <p class="time current-time">0:00</p>
+            </div>
         </div>
     </div>
 

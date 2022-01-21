@@ -1,36 +1,129 @@
 body {
-    background-color: darkseagreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000000;
+    height: 100vh;
+    margin: 0;
+}
+
+.background {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    filter: blur(20px)
 }
 
 .container {
+    width: 380px;
+    height: 500px;
 }
 
 .container__top {
+    height: 70%;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 0 10px black;
+    background-image: url("../assets/img/Beyonce.png");
+    background-size: cover;
 }
 
 .container__bottom {
+    height: 30%;
+    border-radius: 0 0 20px 20px;
+    background: linear-gradient(7deg, rgb(40 40 40 / 78%), rgb(133, 133, 133));
+    display: flex;
 }
 
 .dashboard {
+    margin-top: 10px;
+    width: 100%;
 }
 
 .dashboard__top {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
+.button {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+.button:hover {
+    opacity: 0.5;
+}
+
+
 .play-stop {
+    width: 50px;
+    height: 50px;
 }
 
 .name {
 }
 
+.name__text {
+    padding: 0;
+    margin: 10px;
+}
+
 .name__singer {
+    color: rgb(193, 255, 6);
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .name__music {
+    color: white;
+    font-size: 17px;
 }
 
 .switches {
+    display: flex;
+    flex-direction: column;
+}
+
+.switch {
+    width: 30px;
+    height: 30px;
+}
+
+.switch-backward {
+}
+
+.switch-forward {
 }
 
 .dashboard__bottom {
+    height: 30px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.time {
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+}
+
+.full-time {
+    text-align: right;
+    color: rgb(193, 255, 6);
+}
+
+.progress-bar {
+    padding: 0;
+    width: 100%;
+}
+
+.current-time {
+    text-align: left;
+    color: #ffffff;
 }
