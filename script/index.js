@@ -7,6 +7,17 @@ let isPlaying = false;
 let playNum = 0;
 let playList = ["Tom_Odell_-_Cant_Pretend", "Beyonce_-_Don't_Hurt_Yourself", "Dua_Lipa_-_Don'tStart_Now"];
 
+function fullTime() {
+    let fullTime = Math.floor(audio.duration);
+    let minute = Math.floor(fullTime / 60);
+    let seconds = fullTime - minute * 60;
+    progress.max = fullTime;
+
+    document.querySelector('.full-time').innerHTML = `${minute}:${seconds}`;
+}
+
+setTimeout(fullTime, 1000);
+
 function preloadImages() {
     playList.forEach((name) => {
         let img = new Image;
@@ -16,15 +27,6 @@ function preloadImages() {
 }
 
 preloadImages();
-
-function fullTime() {
-    let fullTime = Math.floor(audio.duration);
-    let minute = Math.floor(fullTime / 60);
-    let seconds = fullTime - minute * 60;
-    progress.max = fullTime;
-
-    document.querySelector('.full-time').innerHTML = `${minute}:${seconds}`;
-}
 
 function checkPlay() {
     isPlaying ? pauseMusic() : playMusic();
@@ -103,7 +105,6 @@ function changeTheme() {
     containerBackground.src = `./assets/img/${playList[playNum].split('_')[0]}.png`;
 }
 
-setTimeout(fullTime, 500);
 playStopSwitch.addEventListener('click', checkPlay);
 progress.addEventListener('change', changeProgress);
 backward.addEventListener('click', backwardMusic);
