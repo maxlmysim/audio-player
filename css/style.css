@@ -123,6 +123,21 @@ body {
     width: 100%;
 }
 
+input[type='range'] {
+    -webkit-appearance: none;
+    background: #000000;
+    height: 7px;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: rgb(193, 255, 6);
+    height: 15px;
+    width: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .current-time {
     text-align: left;
     color: #ffffff;
