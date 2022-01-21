@@ -5,7 +5,7 @@ const forward = document.querySelector('.switch-forward');
 const progress = document.querySelector('.progress-bar');
 let isPlaying = false;
 let playNum = 0;
-let playList = ["Tom_Odell_-_Cant_Pretend.mp3", "Beyonce_-_Don't_Hurt_Yourself.mp3", "Dua_Lipa_-_Don'tStart_Now.mp3"];
+let playList = ["Tom_Odell_-_Cant_Pretend", "Beyonce_-_Don't_Hurt_Yourself", "Dua_Lipa_-_Don'tStart_Now"];
 
 function preloadImages() {
     playList.forEach((name) => {
@@ -28,18 +28,18 @@ function fullTime() {
 
 function checkPlay() {
     isPlaying ? pauseMusic() : playMusic();
-    isPlaying = !isPlaying;
 }
 
 function playMusic() {
-    document.querySelector('.play-stop').src = './assets/svg/play.png';
-    audio.src = `./assets/audio/${playList[playNum]}`;
+    document.querySelector('.play-stop').src = './assets/svg/pause.png';
     audio.play();
+    isPlaying = true;
     setInterval(currentTime, 1000);
 }
 
 function pauseMusic() {
-    document.querySelector('.play-stop').src = './assets/svg/pause.png';
+    document.querySelector('.play-stop').src = './assets/svg/play.png';
+    isPlaying = false;
     audio.pause();
 }
 
@@ -63,9 +63,9 @@ function backwardMusic() {
         playNum--;
     }
 
+    audio.src = `./assets/audio/${playList[playNum]}.mp3`;
     changeTheme();
     playMusic();
-
 }
 
 function forwardMusic() {
@@ -73,6 +73,7 @@ function forwardMusic() {
         playNum++;
     }
 
+    audio.src = `./assets/audio/${playList[playNum]}.mp3`;
     changeTheme();
     playMusic();
 }
@@ -80,9 +81,26 @@ function forwardMusic() {
 function changeTheme() {
     let mainBackground = document.querySelector('.background');
     let containerBackground = document.querySelector('.container__top_background');
+    let changeNameSinger = document.querySelector('.name__singer');
+    let changeNameMusic = document.querySelector('.name__music');
 
+    let nameSinger = playList[playNum].split('-').map((name, index) => {
+        if (index === 1) return 0;
+        return name.split('_')
+            .join(' ')
+            .trim()
+    })
+    let nameMusic = playList[playNum].split('-').map((name, index) => {
+        if (index === 0) return 0;
+        return name.split('_')
+            .join(' ')
+            .trim()
+    })
+
+    changeNameSinger.innerHTML = nameSinger[0]
+    changeNameMusic.innerHTML = nameMusic[1]
     mainBackground.src = `./assets/img/${playList[playNum].split('_')[0]}.png`;
-    containerBackground.src = `./assets/img/${playList[playNum].split('_')[0]}.png`
+    containerBackground.src = `./assets/img/${playList[playNum].split('_')[0]}.png`;
 }
 
 setTimeout(fullTime, 500);
