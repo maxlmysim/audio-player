@@ -79,10 +79,10 @@ function forwardMusic() {
 
 function changeTheme() {
     let mainBackground = document.querySelector('.background');
-    let containerBackground = document.querySelector('.container__top');
+    let containerBackground = document.querySelector('.container__top_background');
 
     mainBackground.src = `./assets/img/${playList[playNum].split('_')[0]}.png`;
-    containerBackground.style.backgroundImage = `url(../assets/img/${playList[playNum].split('_')[0]}.png)`;
+    containerBackground.src = `./assets/img/${playList[playNum].split('_')[0]}.png`
 }
 
 setTimeout(fullTime, 500);
