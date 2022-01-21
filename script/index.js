@@ -7,6 +7,15 @@ let isPlaying = false;
 let playNum = 0;
 let playList = ["Tom_Odell_-_Cant_Pretend.mp3", "Beyonce_-_Don't_Hurt_Yourself.mp3", "Dua_Lipa_-_Don'tStart_Now.mp3"];
 
+function preloadImages() {
+    playList.forEach((name) => {
+        let img = new Image;
+        let firstName = name.split('_')[0];
+        img.src = `./assets/img/${firstName}.png`;
+    });
+}
+
+preloadImages();
 
 function fullTime() {
     let fullTime = Math.floor(audio.duration);
