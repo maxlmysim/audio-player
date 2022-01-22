@@ -19,8 +19,6 @@ function fullTime() {
 
 }
 
-fullTime();
-
 function preloadImages() {
     playList.forEach((name) => {
         let img = new Image;
@@ -114,9 +112,10 @@ playStopSwitch.addEventListener('click', checkPlay);
 progress.addEventListener('change', changeProgress);
 backward.addEventListener('click', backwardMusic);
 forward.addEventListener('click', forwardMusic);
+window.addEventListener('load', fullTime)
 
-
-
+console.log('Если есть какие-то ошибки или баги, попробуйте обновить страницу.');
+console.log('If site have any mistakes, reload page and try again.');
 
 
 
