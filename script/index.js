@@ -8,15 +8,18 @@ let playNum = 0;
 let playList = ["Tom_Odell_-_Cant_Pretend", "Beyonce_-_Don't_Hurt_Yourself", "Dua_Lipa_-_Don'tStart_Now"];
 
 function fullTime() {
-    let fullTime = Math.floor(audio.duration);
-    let minute = Math.floor(fullTime / 60);
-    let seconds = fullTime - minute * 60;
-    progress.max = fullTime;
+    setTimeout(function () {
+        let fullTime = Math.floor(audio.duration);
+        let minute = Math.floor(fullTime / 60);
+        let seconds = fullTime - minute * 60;
+        progress.max = fullTime;
 
-    document.querySelector('.full-time').innerHTML = `${minute}:${seconds}`;
+        document.querySelector('.full-time').innerHTML = `${minute}:${seconds}`;
+    }, 1000);
+
 }
 
-setTimeout(fullTime, 1000);
+fullTime();
 
 function preloadImages() {
     playList.forEach((name) => {
@@ -67,6 +70,7 @@ function backwardMusic() {
 
     audio.src = `./assets/audio/${playList[playNum]}.mp3`;
     changeTheme();
+    fullTime();
     playMusic();
 }
 
@@ -77,6 +81,7 @@ function forwardMusic() {
 
     audio.src = `./assets/audio/${playList[playNum]}.mp3`;
     changeTheme();
+    fullTime();
     playMusic();
 }
 
@@ -90,17 +95,17 @@ function changeTheme() {
         if (index === 1) return 0;
         return name.split('_')
             .join(' ')
-            .trim()
-    })
+            .trim();
+    });
     let nameMusic = playList[playNum].split('-').map((name, index) => {
         if (index === 0) return 0;
         return name.split('_')
             .join(' ')
-            .trim()
-    })
+            .trim();
+    });
 
-    changeNameSinger.innerHTML = nameSinger[0]
-    changeNameMusic.innerHTML = nameMusic[1]
+    changeNameSinger.innerHTML = nameSinger[0];
+    changeNameMusic.innerHTML = nameMusic[1];
     mainBackground.src = `./assets/img/${playList[playNum].split('_')[0]}.png`;
     containerBackground.src = `./assets/img/${playList[playNum].split('_')[0]}.png`;
 }
