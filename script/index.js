@@ -12,6 +12,7 @@ function fullTime() {
         let fullTime = Math.floor(audio.duration);
         let minute = Math.floor(fullTime / 60);
         let seconds = fullTime - minute * 60;
+
         progress.max = fullTime;
 
         document.querySelector('.full-time').innerHTML = `${minute}:${seconds}`;
@@ -26,8 +27,6 @@ function preloadImages() {
         img.src = `./assets/img/${firstName}.png`;
     });
 }
-
-preloadImages();
 
 function checkPlay() {
     isPlaying ? pauseMusic() : playMusic();
@@ -62,9 +61,7 @@ function currentTime() {
 }
 
 function backwardMusic() {
-    if (playNum > 0) {
-        playNum--;
-    }
+    if (playNum > 0) playNum--;
 
     audio.src = `./assets/audio/${playList[playNum]}.mp3`;
     changeTheme();
@@ -73,9 +70,7 @@ function backwardMusic() {
 }
 
 function forwardMusic() {
-    if (playList.length > playNum + 1) {
-        playNum++;
-    }
+    if (playList.length > playNum + 1) playNum++;
 
     audio.src = `./assets/audio/${playList[playNum]}.mp3`;
     changeTheme();
@@ -112,7 +107,8 @@ playStopSwitch.addEventListener('click', checkPlay);
 progress.addEventListener('change', changeProgress);
 backward.addEventListener('click', backwardMusic);
 forward.addEventListener('click', forwardMusic);
-window.addEventListener('load', fullTime)
+window.addEventListener('load', fullTime);
+window.addEventListener('load', preloadImages);
 
 console.log('Если есть какие-то ошибки или баги, попробуйте обновить страницу.');
 console.log('If site have any mistakes, reload page and try again.');
